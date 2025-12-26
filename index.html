@@ -1,254 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Show da Virada – Alvin e os Esquilos</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Show da Virada – Alvin e os Esquilos</title>
 
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --gold: #d4af37;
-      --dark: #0b0b12;
-      --light: #f8f8fb;
-      --muted: #b6b6c3;
-      --red: #e63946;
-      --blue: #3a86ff;
-      --green: #38b000;
-    }
+<style>
+:root {
+  --gold:#d4af37;
+  --dark:#0b0b12;
+  --light:#f8f8fb;
+  --muted:#b6b6c3;
+  --red:#e63946;
+  --blue:#3a86ff;
+  --green:#38b000;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1b1b2a, #050509);
-      color: var(--light);
-      overflow-x: hidden;
-    }
+body {
+  font-family:'Inter', sans-serif;
+  background:radial-gradient(circle at top,#1b1b2a,#050509);
+  color:var(--light);
+  overflow-x:hidden;
+}
 
-    /* HEADER / HERO */
-    header {
-      min-height: 100vh;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.95)),
-        url('https://images.unsplash.com/photo-1518972559570-7cc1309f3229') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-    }
+/* HERO */
+header {
+  min-height:100vh;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.95)),
+    url('https://images.unsplash.com/photo-1518972559570-7cc1309f3229') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:2rem;
+}
 
-    .hero {
-      max-width: 1000px;
-      animation: fadeUp 1.2s ease;
-    }
+.hero {
+  max-width:1000px;
+  animation:fadeUp 1.2s ease;
+}
 
-    .badge {
-      display: inline-block;
-      padding: .5rem 1.2rem;
-      border-radius: 30px;
-      background: rgba(212,175,55,.15);
-      border: 1px solid rgba(212,175,55,.4);
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
+.badge {
+  display:inline-block;
+  padding:.5rem 1.2rem;
+  border-radius:30px;
+  background:rgba(212,175,55,.15);
+  border:1px solid rgba(212,175,55,.4);
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:1.5rem;
+}
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.2rem, 6vw, 5.5rem);
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  color:var(--gold);
+}
 
-    .hero h1 span { color: white; }
+.hero h1 span { color:white; }
 
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--muted);
-      margin-bottom: 3rem;
-    }
+.hero p {
+  font-size:1.25rem;
+  color:var(--muted);
+  margin:2rem 0 3rem;
+}
 
-    .cta {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.cta {
+  display:flex;
+  gap:1.5rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 
-    .btn {
-      padding: 1rem 3rem;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: 700;
-      transition: .3s ease;
-    }
+.btn {
+  padding:1rem 3rem;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  font-size:1.1rem;
+  font-weight:700;
+  transition:.3s ease;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), #f0d77a);
-      color: #000;
-    }
+.btn-primary {
+  background:linear-gradient(135deg,var(--gold),#f0d77a);
+  color:#000;
+}
 
-    .btn-primary:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(212,175,55,.4);
-    }
+.btn-primary:hover {
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(212,175,55,.4);
+}
 
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255,255,255,.3);
-    }
+.btn-outline {
+  background:transparent;
+  color:white;
+  border:1px solid rgba(255,255,255,.3);
+}
 
-    /* SECTIONS */
-    section { padding: 6rem 8vw; }
+/* SECTIONS */
+section { padding:6rem 8vw; }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin-bottom: 2.5rem;
-      color: var(--gold);
-      text-align: center;
-    }
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  margin-bottom:3rem;
+  color:var(--gold);
+  text-align:center;
+}
 
-    /* PERSONAGENS */
-    .characters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2.5rem;
-    }
+/* PERSONAGENS */
+.characters {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2.5rem;
+}
 
-    .character {
-      background: rgba(255,255,255,.05);
-      border-radius: 24px;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      transition: transform .4s ease;
-    }
+.character {
+  background:rgba(255,255,255,.05);
+  border-radius:26px;
+  padding:3rem 2.5rem;
+  text-align:center;
+  backdrop-filter:blur(14px);
+  transition:.4s ease;
+}
 
-    .character:hover { transform: translateY(-12px); }
+.character:hover {
+  transform:translateY(-12px);
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
 
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: 800;
-      color: white;
-    }
+/* AVATAR COM IMAGEM */
+.avatar {
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  margin:0 auto 1.5rem;
+  background-size:cover;
+  background-position:center;
+  border:3px solid rgba(255,255,255,.2);
+  box-shadow:0 0 0 rgba(255,255,255,0);
+  transition:.4s ease;
+}
 
-    .alvin { background: linear-gradient(135deg, var(--red), #ff6b6b); }
-    .simon { background: linear-gradient(135deg, var(--blue), #6ea8ff); }
-    .theodore { background: linear-gradient(135deg, var(--green), #70e000); }
+.character:hover .avatar {
+  box-shadow:0 0 25px rgba(212,175,55,.6);
+}
 
-    .character h3 { margin-bottom: .8rem; }
-    .character p { color: var(--muted); line-height: 1.6; }
+/* IMAGENS */
+.alvin {
+  background-image:url('alvin.png');
+  background-position-y: 0.5rem;
+}
 
-    /* INGRESSOS */
-    .tickets {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.simon {
+  background-image:url('simon.png');
+  background-position-y: 0.05rem;
+}
 
-    .ticket {
-      background: linear-gradient(160deg, rgba(212,175,55,.15), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 26px;
-      padding: 3.5rem 3rem;
-      text-align: center;
-      position: relative;
-    }
+.theodore {
+  background-image:url('theodore.png');
+  background-position-y: 0.1rem;
+}
 
-    .ticket h3 { font-size: 1.9rem; margin-bottom: .6rem; }
-    .ticket span { color: var(--muted); }
+.character h3 { margin-bottom:.8rem; }
+.character p { color:var(--muted); line-height:1.6; }
 
-    .price {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 1.8rem 0;
-      color: var(--gold);
-    }
+/* INGRESSOS */
+.tickets {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2.5rem;
+  max-width:1100px;
+  margin:0 auto;
+}
 
-    .ticket button {
-      width: 100%;
-      padding: 1.2rem;
-      border-radius: 14px;
-      border: none;
-      background: linear-gradient(135deg, #7c5cff, #9f8cff);
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
+.ticket {
+  background:linear-gradient(160deg,rgba(212,175,55,.15),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:26px;
+  padding:3.5rem 3rem;
+  text-align:center;
+}
 
-    /* MODAL ERRO */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
+.ticket h3 { font-size:1.9rem; }
+.ticket span { color:var(--muted); }
 
-    .modal.active { display: flex; }
+.price {
+  font-size:3rem;
+  font-weight:800;
+  margin:1.8rem 0;
+  color:var(--gold);
+}
 
-    .modal-box {
-      background: #131320;
-      padding: 3.5rem;
-      border-radius: 22px;
-      max-width: 460px;
-      text-align: center;
-      animation: fadeUp .4s ease;
-    }
+.ticket button {
+  width:100%;
+  padding:1.2rem;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,#7c5cff,#9f8cff);
+  color:white;
+  font-size:1.1rem;
+  font-weight:700;
+  cursor:pointer;
+}
 
-    .modal-box h4 {
-      color: #ff6b6b;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
+/* FOOTER */
+footer {
+  padding:4rem 8vw;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.08);
+}
 
-    .modal-box p { color: var(--muted); margin-bottom: 2.2rem; }
-
-    .modal-box button {
-      padding: .9rem 2.4rem;
-      border-radius: 12px;
-      border: none;
-      background: #26263a;
-      color: white;
-      cursor: pointer;
-    }
-
-    footer {
-      padding: 4rem 8vw;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* ANIMAÇÕES */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to { opacity:1; transform:translateY(0); }
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -257,7 +236,7 @@
     <h1>Show da Virada<br><span>Alvin & os Esquilos</span></h1>
     <p>Uma noite inesquecível com música, diversão e a contagem regressiva mais animada do Brasil.</p>
     <div class="cta">
-      <button class="btn btn-primary" onclick="scrollToTickets()">Comprar Ingressos</button>
+      <button class="btn btn-primary" onclick="window.location.href='checkout.html'">Comprar Ingressos</button>
       <button class="btn btn-outline" onclick="scrollToCharacters()">Conheça os Esquilos</button>
     </div>
   </div>
@@ -267,17 +246,17 @@
   <h2 class="section-title">Os Protagonistas</h2>
   <div class="characters">
     <div class="character">
-      <div class="avatar alvin">A</div>
+      <div class="avatar alvin"></div>
       <h3>Alvin</h3>
       <p>O líder ousado e cheio de atitude. Energia máxima e hits que levantam qualquer multidão.</p>
     </div>
     <div class="character">
-      <div class="avatar simon">S</div>
+      <div class="avatar simon"></div>
       <h3>Simon</h3>
       <p>O cérebro do grupo. Arranjos impecáveis e performances surpreendentes.</p>
     </div>
     <div class="character">
-      <div class="avatar theodore">T</div>
+      <div class="avatar theodore"></div>
       <h3>Theodore</h3>
       <p>O mais carismático. Emoção, doçura e momentos inesquecíveis no palco.</p>
     </div>
@@ -289,21 +268,21 @@
   <div class="tickets">
     <div class="ticket">
       <h3>Pista</h3>
-      <span>Acesso geral ao evento</span>
+      <span>Acesso geral</span>
       <div class="price">R$ 120</div>
-      <button onclick="simulatePurchase()">Finalizar Compra</button>
+      <button onclick="goCheckout('Pista',120)">Finalizar Compra</button>
     </div>
     <div class="ticket">
       <h3>VIP</h3>
-      <span>Área exclusiva + vista privilegiada</span>
+      <span>Área exclusiva</span>
       <div class="price">R$ 220</div>
-      <button onclick="simulatePurchase()">Finalizar Compra</button>
+      <button onclick="goCheckout('VIP',220)">Finalizar Compra</button>
     </div>
     <div class="ticket">
       <h3>Camarote</h3>
-      <span>Open bar + acesso premium</span>
+      <span>Open bar + premium</span>
       <div class="price">R$ 350</div>
-      <button onclick="simulatePurchase()">Finalizar Compra</button>
+      <button onclick="goCheckout('Camarote',350)">Finalizar Compra</button>
     </div>
   </div>
 </section>
@@ -313,34 +292,19 @@
   <p>© 2025 Show da Virada – Alvin e os Esquilos</p>
 </footer>
 
-<div class="modal" id="errorModal">
-  <div class="modal-box">
-    <h4>Falha na transação</h4>
-    <p>Nosso sistema de pagamentos está temporariamente indisponível. Por favor, tente novamente em alguns minutos.</p>
-    <button onclick="closeModal()">Fechar</button>
-  </div>
-</div>
-
 <script>
-  function scrollToTickets() {
-    document.getElementById('tickets').scrollIntoView({ behavior: 'smooth' });
-  }
+function scrollToTickets() {
+  document.getElementById('tickets').scrollIntoView({ behavior:'smooth' });
+}
 
-  function scrollToCharacters() {
-    document.getElementById('characters').scrollIntoView({ behavior: 'smooth' });
-  }
+function scrollToCharacters() {
+  document.getElementById('characters').scrollIntoView({ behavior:'smooth' });
+}
 
-  function simulatePurchase() {
-    setTimeout(() => {
-      document.getElementById('errorModal').classList.add('active');
-    }, 1200);
-  }
-
-  function closeModal() {
-    document.getElementById('errorModal').classList.remove('active');
-  }
+function goCheckout(tipo, preco) {
+  window.location.href = `checkout.html?tipo=${tipo}&preco=${preco}`;
+}
 </script>
 
 </body>
 </html>
-
