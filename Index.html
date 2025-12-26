@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Show da Virada – Belo Horizonte</title>
+  <title>Show da Virada – Alvin e os Esquilos</title>
 
-  <!--   FONTES   -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -13,153 +13,195 @@
   <style>
     :root {
       --gold: #d4af37;
-      --dark: #0f0f14;
-      --light: #f7f7f7;
-      --muted: #b8b8c0;
-      --accent: #7c5cff;
+      --dark: #0b0b12;
+      --light: #f8f8fb;
+      --muted: #b6b6c3;
+      --red: #e63946;
+      --blue: #3a86ff;
+      --green: #38b000;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1a1a25, #0a0a0f);
+      background: radial-gradient(circle at top, #1b1b2a, #050509);
       color: var(--light);
       overflow-x: hidden;
     }
 
+    /* HEADER / HERO */
     header {
       min-height: 100vh;
-      background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.9)),
-                  url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2') center/cover;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.95)),
+        url('https://images.unsplash.com/photo-1518972559570-7cc1309f3229') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      position: relative;
     }
 
     .hero {
-      max-width: 900px;
+      max-width: 1000px;
       animation: fadeUp 1.2s ease;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: .5rem 1.2rem;
+      border-radius: 30px;
+      background: rgba(212,175,55,.15);
+      border: 1px solid rgba(212,175,55,.4);
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
       color: var(--gold);
       margin-bottom: 1rem;
     }
 
+    .hero h1 span { color: white; }
+
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--muted);
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
-    .hero button {
+    .cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       padding: 1rem 3rem;
-      font-size: 1.1rem;
       border-radius: 50px;
       border: none;
       cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .btn-primary {
       background: linear-gradient(135deg, var(--gold), #f0d77a);
       color: #000;
-      font-weight: 700;
-      transition: transform .3s ease, box-shadow .3s ease;
     }
 
-    .hero button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(212,175,55,.35);
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(212,175,55,.4);
     }
 
-    section {
-      padding: 6rem 8vw;
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.3);
     }
-  
+
+    /* SECTIONS */
+    section { padding: 6rem 8vw; }
+
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      font-size: 2.8rem;
+      margin-bottom: 2.5rem;
       color: var(--gold);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(10px);
-      transition: transform .4s ease, box-shadow .4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 30px 60px rgba(0,0,0,.4);
-    }
-
-    .card h3 {
-      margin-bottom: .8rem;
-      color: var(--gold);
-    }
-
-    .card p {
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .ticket {
-      background: linear-gradient(160deg, rgba(212,175,55,.15), rgba(124,92,255,.15));
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 24px;
-      padding: 3rem;
-      max-width: 520px;
-      margin: 0 auto;
       text-align: center;
     }
 
-    .ticket h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--gold);
+    /* PERSONAGENS */
+    .characters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
     }
+
+    .character {
+      background: rgba(255,255,255,.05);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: transform .4s ease;
+    }
+
+    .character:hover { transform: translateY(-12px); }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .alvin { background: linear-gradient(135deg, var(--red), #ff6b6b); }
+    .simon { background: linear-gradient(135deg, var(--blue), #6ea8ff); }
+    .theodore { background: linear-gradient(135deg, var(--green), #70e000); }
+
+    .character h3 { margin-bottom: .8rem; }
+    .character p { color: var(--muted); line-height: 1.6; }
+
+    /* INGRESSOS */
+    .tickets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .ticket {
+      background: linear-gradient(160deg, rgba(212,175,55,.15), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 26px;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .ticket h3 { font-size: 1.9rem; margin-bottom: .6rem; }
+    .ticket span { color: var(--muted); }
 
     .price {
       font-size: 3rem;
-      font-weight: 700;
-      margin: 1.5rem 0;
+      font-weight: 800;
+      margin: 1.8rem 0;
+      color: var(--gold);
     }
 
     .ticket button {
       width: 100%;
-      padding: 1.1rem;
-      border-radius: 12px;
+      padding: 1.2rem;
+      border-radius: 14px;
       border: none;
-      background: linear-gradient(135deg, var(--accent), #9f8cff);
+      background: linear-gradient(135deg, #7c5cff, #9f8cff);
       color: white;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
     }
 
-    footer {
-      padding: 3rem 8vw;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    /* MODAL */
+    /* MODAL ERRO */
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.75);
+      background: rgba(0,0,0,.8);
       display: none;
       align-items: center;
       justify-content: center;
@@ -169,33 +211,36 @@
     .modal.active { display: flex; }
 
     .modal-box {
-      background: #14141f;
-      padding: 3rem;
-      border-radius: 20px;
-      max-width: 420px;
-      width: 90%;
+      background: #131320;
+      padding: 3.5rem;
+      border-radius: 22px;
+      max-width: 460px;
       text-align: center;
-      animation: fadeUp .5s ease;
+      animation: fadeUp .4s ease;
     }
 
     .modal-box h4 {
       color: #ff6b6b;
       margin-bottom: 1rem;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
-    .modal-box p {
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
+    .modal-box p { color: var(--muted); margin-bottom: 2.2rem; }
 
     .modal-box button {
-      padding: .9rem 2rem;
-      border-radius: 10px;
+      padding: .9rem 2.4rem;
+      border-radius: 12px;
       border: none;
-      background: #2b2b3d;
+      background: #26263a;
       color: white;
       cursor: pointer;
+    }
+
+    footer {
+      padding: 4rem 8vw;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.08);
     }
 
     @keyframes fadeUp {
@@ -206,70 +251,96 @@
 </head>
 <body>
 
-  <header>
-    <div class="hero">
-      <h1>Show da Virada</h1>
-      <p>31 de Dezembro • Praça da Liberdade • Belo Horizonte</p>
-      <button onclick="scrollToTickets()">Comprar Ingresso</button>
-    </div>
-  </header>
-
-  <section>
-    <h2 class="section-title">O Evento</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Experiência Única</h3>
-        <p>Um espetáculo de luzes, música e emoção para celebrar a virada do ano em grande estilo.</p>
-      </div>
-      <div class="card">
-        <h3>Atrações Especiais</h3>
-        <p>Shows exclusivos, contagem regressiva oficial e uma atmosfera inesquecível.</p>
-      </div>
-      <div class="card">
-        <h3>Local Icônico</h3>
-        <p>A Praça da Liberdade será transformada em um grande palco a céu aberto.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="tickets">
-    <h2 class="section-title">Ingressos</h2>
-    <div class="ticket">
-      <h3>Ingresso Inteiro</h3>
-      <p>Acesso completo ao evento</p>
-      <div class="price">R$ 120,00</div>
-      <button onclick="simulatePurchase()">Finalizar Compra</button>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Show da Virada • Produção Oficial</p>
-  </footer>
-
-  <!-- MODAL DE ERRO -->
-  <div class="modal" id="errorModal">
-    <div class="modal-box">
-      <h4>Erro no processamento</h4>
-      <p>Não foi possível concluir sua compra no momento. Tente novamente mais tarde.</p>
-      <button onclick="closeModal()">Entendi</button>
+<header>
+  <div class="hero">
+    <div class="badge">Especial de Réveillon</div>
+    <h1>Show da Virada<br><span>Alvin & os Esquilos</span></h1>
+    <p>Uma noite inesquecível com música, diversão e a contagem regressiva mais animada do Brasil.</p>
+    <div class="cta">
+      <button class="btn btn-primary" onclick="scrollToTickets()">Comprar Ingressos</button>
+      <button class="btn btn-outline" onclick="scrollToCharacters()">Conheça os Esquilos</button>
     </div>
   </div>
+</header>
 
-  <script>
-    function scrollToTickets() {
-      document.getElementById('tickets').scrollIntoView({ behavior: 'smooth' });
-    }
+<section id="characters">
+  <h2 class="section-title">Os Protagonistas</h2>
+  <div class="characters">
+    <div class="character">
+      <div class="avatar alvin">A</div>
+      <h3>Alvin</h3>
+      <p>O líder ousado e cheio de atitude. Energia máxima e hits que levantam qualquer multidão.</p>
+    </div>
+    <div class="character">
+      <div class="avatar simon">S</div>
+      <h3>Simon</h3>
+      <p>O cérebro do grupo. Arranjos impecáveis e performances surpreendentes.</p>
+    </div>
+    <div class="character">
+      <div class="avatar theodore">T</div>
+      <h3>Theodore</h3>
+      <p>O mais carismático. Emoção, doçura e momentos inesquecíveis no palco.</p>
+    </div>
+  </div>
+</section>
 
-    function simulatePurchase() {
-      setTimeout(() => {
-        document.getElementById('errorModal').classList.add('active');
-      }, 1200);
-    }
+<section id="tickets">
+  <h2 class="section-title">Ingressos</h2>
+  <div class="tickets">
+    <div class="ticket">
+      <h3>Pista</h3>
+      <span>Acesso geral ao evento</span>
+      <div class="price">R$ 120</div>
+      <button onclick="simulatePurchase()">Finalizar Compra</button>
+    </div>
+    <div class="ticket">
+      <h3>VIP</h3>
+      <span>Área exclusiva + vista privilegiada</span>
+      <div class="price">R$ 220</div>
+      <button onclick="simulatePurchase()">Finalizar Compra</button>
+    </div>
+    <div class="ticket">
+      <h3>Camarote</h3>
+      <span>Open bar + acesso premium</span>
+      <div class="price">R$ 350</div>
+      <button onclick="simulatePurchase()">Finalizar Compra</button>
+    </div>
+  </div>
+</section>
 
-    function closeModal() {
-      document.getElementById('errorModal').classList.remove('active');
-    }
-  </script>
+<footer>
+  <p>31 de Dezembro • Praça da Liberdade • Belo Horizonte</p>
+  <p>© 2025 Show da Virada – Alvin e os Esquilos</p>
+</footer>
+
+<div class="modal" id="errorModal">
+  <div class="modal-box">
+    <h4>Falha na transação</h4>
+    <p>Nosso sistema de pagamentos está temporariamente indisponível. Por favor, tente novamente em alguns minutos.</p>
+    <button onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+<script>
+  function scrollToTickets() {
+    document.getElementById('tickets').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function scrollToCharacters() {
+    document.getElementById('characters').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function simulatePurchase() {
+    setTimeout(() => {
+      document.getElementById('errorModal').classList.add('active');
+    }, 1200);
+  }
+
+  function closeModal() {
+    document.getElementById('errorModal').classList.remove('active');
+  }
+</script>
 
 </body>
 </html>
+
