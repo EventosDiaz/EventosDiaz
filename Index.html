@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show da Virada – Belo Horizonte</title>
+
+  <!-- FONTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark: #0f0f14;
+      --light: #f7f7f7;
+      --muted: #b8b8c0;
+      --accent: #7c5cff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1a1a25, #0a0a0f);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.9)),
+                  url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero {
+      max-width: 900px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero button {
+      padding: 1rem 3rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gold), #f0d77a);
+      color: #000;
+      font-weight: 700;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(212,175,55,.35);
+    }
+
+    section {
+      padding: 6rem 8vw;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--gold);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
+    }
+
+    .card h3 {
+      margin-bottom: .8rem;
+      color: var(--gold);
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .ticket {
+      background: linear-gradient(160deg, rgba(212,175,55,.15), rgba(124,92,255,.15));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ticket h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 1.5rem 0;
+    }
+
+    .ticket button {
+      width: 100%;
+      padding: 1.1rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), #9f8cff);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 3rem 8vw;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal.active { display: flex; }
+
+    .modal-box {
+      background: #14141f;
+      padding: 3rem;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      animation: fadeUp .5s ease;
+    }
+
+    .modal-box h4 {
+      color: #ff6b6b;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .modal-box p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .modal-box button {
+      padding: .9rem 2rem;
+      border-radius: 10px;
+      border: none;
+      background: #2b2b3d;
+      color: white;
+      cursor: pointer;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero">
+      <h1>Show da Virada</h1>
+      <p>31 de Dezembro • Praça da Liberdade • Belo Horizonte</p>
+      <button onclick="scrollToTickets()">Comprar Ingresso</button>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">O Evento</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Experiência Única</h3>
+        <p>Um espetáculo de luzes, música e emoção para celebrar a virada do ano em grande estilo.</p>
+      </div>
+      <div class="card">
+        <h3>Atrações Especiais</h3>
+        <p>Shows exclusivos, contagem regressiva oficial e uma atmosfera inesquecível.</p>
+      </div>
+      <div class="card">
+        <h3>Local Icônico</h3>
+        <p>A Praça da Liberdade será transformada em um grande palco a céu aberto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tickets">
+    <h2 class="section-title">Ingressos</h2>
+    <div class="ticket">
+      <h3>Ingresso Inteiro</h3>
+      <p>Acesso completo ao evento</p>
+      <div class="price">R$ 120,00</div>
+      <button onclick="simulatePurchase()">Finalizar Compra</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Show da Virada • Produção Oficial</p>
+  </footer>
+
+  <!-- MODAL DE ERRO -->
+  <div class="modal" id="errorModal">
+    <div class="modal-box">
+      <h4>Erro no processamento</h4>
+      <p>Não foi possível concluir sua compra no momento. Tente novamente mais tarde.</p>
+      <button onclick="closeModal()">Entendi</button>
+    </div>
+  </div>
+
+  <script>
+    function scrollToTickets() {
+      document.getElementById('tickets').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function simulatePurchase() {
+      setTimeout(() => {
+        document.getElementById('errorModal').classList.add('active');
+      }, 1200);
+    }
+
+    function closeModal() {
+      document.getElementById('errorModal').classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
